@@ -9,6 +9,7 @@ This node.js application implements a siprec recording server solution, using th
 * Copy `config/default.json.example` to `config/local.json` and edit to provide the IP addresses/ports for your configuration (i.e., location of drachtio and rtpengine servers). 
 * Run `npm install`
 * Run `node app` to run.
+* Configure your SBC to send SIPREC invites to your drachtio server.
 
 ### Using dockerized versions of drachtio and rtpengine
 
