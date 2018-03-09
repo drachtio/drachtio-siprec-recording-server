@@ -1,0 +1,14 @@
+
+v=0
+o=CiscoSystemsSIP-GW-UserAgent 1247 9367 IN IP4 172.31.93.236
+s=SIP Call
+c=IN IP4 172.31.93.236
+t=0 0
+m=audio 10292 RTP/AVP 0 101
+c=IN IP4 172.31.93.236
+a=rtpmap:0 PCMU/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-16
+a=ptime:20
+a=sendonly
+a=label:1

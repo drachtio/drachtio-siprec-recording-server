@@ -1,0 +1,75 @@
+
+--uniqueBoundary
+Content-Disposition: session;handling=required
+Content-Type: application/sdp
+
+v=0
+o=CiscoSystemsSIP-GW-UserAgent 1247 9367 IN IP4 172.31.93.236
+s=SIP Call
+c=IN IP4 172.31.93.236
+t=0 0
+m=audio 10292 RTP/AVP 0 101
+c=IN IP4 172.31.93.236
+a=rtpmap:0 PCMU/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-16
+a=ptime:20
+a=sendonly
+a=label:1
+m=audio 10294 RTP/AVP 0 101
+c=IN IP4 172.31.93.236
+a=rtpmap:0 PCMU/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-16
+a=ptime:20
+a=sendonly
+a=label:2
+
+--uniqueBoundary
+Content-Disposition: recording-session
+Content-Type: application/rs-metadata+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<recording xmlns="urn:ietf:params:xml:ns:recording:1">
+<datamode>complete</datamode>
+<session session_id="kQNhKFdEEeeJ9tD/VsPGWA==">
+<sipSessionID>e9fffff2020a598b86962867715db0cf;remote=cd0f7093d62c5f0697098fd69a4aa57b</sipSessionID>
+<start-time>2017-06-23T12:16:06.040Z</start-time>
+</session>
+<participant participant_id="kQNhKFdEEeeJ99D/VsPGWA==">
+<nameID aor="sip:7301@35.162.237.204">
+</nameID>
+</participant>
+<participantsessionassoc participant_id="kQNhKFdEEeeJ99D/VsPGWA==" session_id="kQNhKFdEEeeJ9tD/VsPGWA==">
+<associate-time>2017-06-23T12:16:06.040Z</associate-time>
+</participantsessionassoc>
+<stream stream_id="kQOH5VdEEeeJ/ND/VsPGWA==" session_id="kQNhKFdEEeeJ9tD/VsPGWA==">
+<label>1</label>
+</stream>
+<participant participant_id="kQNhKFdEEeeJ+ND/VsPGWA==">
+<nameID aor="sip:7300@35.162.237.204">
+<name xml:lang="en">7300</name>
+</nameID>
+</participant>
+<participantsessionassoc participant_id="kQNhKFdEEeeJ+ND/VsPGWA==" session_id="kQNhKFdEEeeJ9tD/VsPGWA==">
+<associate-time>2017-06-23T12:16:06.040Z</associate-time>
+</participantsessionassoc>
+<stream stream_id="kQOH5VdEEeeJ/dD/VsPGWA==" session_id="kQNhKFdEEeeJ9tD/VsPGWA==">
+<label>2</label>
+</stream>
+<participantstreamassoc participant_id="kQNhKFdEEeeJ99D/VsPGWA==">
+<send>kQOH5VdEEeeJ/ND/VsPGWA==</send>
+<recv>kQOH5VdEEeeJ/dD/VsPGWA==</recv>
+</participantstreamassoc>
+<participantstreamassoc participant_id="kQNhKFdEEeeJ+ND/VsPGWA==">
+<send>kQOH5VdEEeeJ/dD/VsPGWA==</send>
+<recv>kQOH5VdEEeeJ/ND/VsPGWA==</recv>
+</participantstreamassoc>
+</recording>
+
+--uniqueBoundary
+Content-Disposition: signal;handling=optional
+Content-Type: application/gtd
+
+IAM,
+GCI,91036128574411e789f9d0ff56c3c658

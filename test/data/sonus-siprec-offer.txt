@@ -1,0 +1,78 @@
+
+--sonus-content-delim
+Content-Disposition: session; handling=required
+Content-Type: application/sdp
+
+v=0
+o=Sonus_UAC 328001 655768 IN IP4 172.16.169.181
+s=SIP Media Capabilities
+t=0 0
+m=audio 48932 RTP/AVP 0
+c=IN IP4 172.16.169.132
+a=label:1
+a=rtpmap:0 PCMU/8000
+a=sendonly
+a=maxptime:20
+m=audio 48926 RTP/AVP 0
+c=IN IP4 172.16.169.132
+a=label:2
+a=rtpmap:0 PCMU/8000
+a=sendonly
+a=maxptime:20
+
+--sonus-content-delim
+Content-Disposition: recording-session
+Content-Type: application/rs-metadata+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:recording xmlns:tns='urn:ietf:params:xml:ns:recording'>
+    <tns:datamode>complete</tns:datamode>
+    <tns:group group_id="MTQ3YzA3YzAtNjdkNy0xMA==">
+        <tns:associate-time>1970-05-13T03:29:05Z</tns:associate-time>
+        <callData xmlns='urn:ietf:params:xml:ns:callData'>
+            <fromhdr>"Extension 8500" &lt;sip:2249888500@172.16.198.55&gt;;tag=SerryvK5ej0jc</fromhdr>
+            <tohdr>&lt;sip:2249888012@172.16.195.72&gt;;tag=gK00801b2d</tohdr>
+            <callid>2da553f7-a48b-1235-d6a2-5254003a4988</callid>
+            <gcid>241205267</gcid>
+        </callData>
+    </tns:group>
+    <tns:session session_id="MTQ3YzA3YzEtNjdkNy0xMA==">
+        <tns:group-ref>MTQ3YzA3YzAtNjdkNy0xMA==</tns:group-ref>
+        <tns:start-time>1970-05-13T03:29:05Z</tns:start-time>
+    </tns:session>
+    <tns:participant participant_id="MTQ3YzA3YzItNjdkNy0xMA==">
+        <tns:nameID aor="2249888500@172.16.198.55">
+            <tns:name xml:lang="en">Extension 8500</tns:name>
+        </tns:nameID>
+    </tns:participant>
+    <tns:participant participant_id="MTQ3YzA3YzMtNjdkNy0xMA==">
+        <tns:nameID aor="2249888012@172.16.195.72">
+            <tns:name xml:lang="en"> </tns:name>
+        </tns:nameID>
+    </tns:participant>
+    <tns:stream stream_id="MTQ3YzA3YzQtNjdkNy0xMA==" session_id="MTQ3YzA3YzEtNjdkNy0xMA==">
+        <tns:label>1</tns:label>
+        <tns:associate-time>1970-05-13T03:29:05Z</tns:associate-time>
+    </tns:stream>
+    <tns:stream stream_id="MTQ3YzA3YzUtNjdkNy0xMA==" session_id="MTQ3YzA3YzEtNjdkNy0xMA==">
+        <tns:label>2</tns:label>
+        <tns:associate-time>1970-05-13T03:29:05Z</tns:associate-time>
+    </tns:stream>
+    <tns:sessionrecordingassoc session_id="MTQ3YzA3YzEtNjdkNy0xMA==">
+        <tns:associate-time>1970-05-13T03:29:05Z</tns:associate-time>
+    </tns:sessionrecordingassoc>
+    <tns:participantsessionassoc participant_id="MTQ3YzA3YzItNjdkNy0xMA==" session_id="MTQ3YzA3YzEtNjdkNy0xMA==">
+        <tns:associate-time>1970-05-13T03:29:05Z</tns:associate-time>
+    </tns:participantsessionassoc>
+    <tns:participantsessionassoc participant_id="MTQ3YzA3YzMtNjdkNy0xMA==" session_id="MTQ3YzA3YzEtNjdkNy0xMA==">
+        <tns:associate-time>1970-05-13T03:29:05Z</tns:associate-time>
+    </tns:participantsessionassoc>
+    <tns:participantstreamassoc participant_id="MTQ3YzA3YzItNjdkNy0xMA==">
+        <tns:send>MTQ3YzA3YzUtNjdkNy0xMA==</tns:send>
+        <tns:recv>MTQ3YzA3YzQtNjdkNy0xMA==</tns:recv>
+    </tns:participantstreamassoc>
+    <tns:participantstreamassoc participant_id="MTQ3YzA3YzMtNjdkNy0xMA==">
+        <tns:send>MTQ3YzA3YzQtNjdkNy0xMA==</tns:send>
+        <tns:recv>MTQ3YzA3YzUtNjdkNy0xMA==</tns:recv>
+    </tns:participantstreamassoc>
+</tns:recording>

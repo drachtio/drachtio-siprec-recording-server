@@ -1,0 +1,46 @@
+{
+  "name": "drachtio-siprec-recording-server",
+  "version": "1.0.0",
+  "description": "SIPREC recording server built using drachtio and rtpengine",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "jslint": "eslint lib index.js",
+    "test": "NODE_ENV=test node test/ | ./node_modules/.bin/tap-spec",
+    "coverage": "NODE_ENV=test ./node_modules/.bin/istanbul cover test/ --report html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davehorton/drachtio-siprec-recording-server.git"
+  },
+  "keywords": [
+    "sip",
+    "siprec",
+    "drachtio",
+    "rtpengine",
+    "recording",
+    "rfc7865",
+    "rfc7866"
+  ],
+  "author": "Dave Horton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davehorton/drachtio-siprec-recording-server/issues"
+  },
+  "homepage": "https://github.com/davehorton/drachtio-siprec-recording-server#readme",
+  "devDependencies": {
+    "blue-tape": "^1.0.0",
+    "fs-extra": "^5.0.0",
+    "istanbul": "^0.4.5",
+    "tap-dot": "^1.0.5",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.9.0"
+  },
+  "dependencies": {
+    "config": "^1.30.0",
+    "drachtio-fsmrf": "^1.1.4",
+    "drachtio-srf": "^4.2.11",
+    "pino": "^4.13.0",
+    "rtpengine-client": "0.0.6"
+  }
+}

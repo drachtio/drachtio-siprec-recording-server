@@ -1,0 +1,69 @@
+
+--2CD2A2E9
+Content-Type: application/sdp
+
+v=0
+o=sems 1022740575 691822371 IN IP4 89.185.131.7
+s=sems
+c=IN IP4 89.185.131.7
+t=0 0
+m=audio 12654 RTP/AVP 8
+c=IN IP4 89.185.131.7
+a=rtpmap:8 PCMA/8000
+a=direction:both
+a=sendonly
+a=label:a_leg
+m=audio 12686 RTP/AVP 8
+c=IN IP4 89.185.131.7
+a=rtpmap:8 PCMA/8000
+a=direction:both
+a=sendonly
+a=label:b_leg
+
+--2CD2A2E9
+Content-Disposition: recording-session
+Content-Type: application/rs-metadata
+
+<?xml version="1.0" encoding="UTF-8"?>
+<recording xmlns='urn:ietf:params:xml:ns:recording:1'>
+<datamode>complete</datamode>
+<session session_id="ho9aUhEQTRS+31th7sHStA==">
+<start-time>2017-12-11T14:44:23Z</start-time>
+</session>
+<participant participant_id="Ye5S5pU+SAG2JY4oG7M4Cw==">
+<nameID aor="sip:016190200@87.252.209.116">
+<name>016190200</name>
+</nameID>
+</participant>
+<participant participant_id="QDhKextjTa+F1TzXuvHZHw==">
+<nameID aor="Extension-016190619@speechpath.ie">
+<name>Speechpath-Main-Line 016190619</name>
+</nameID>
+</participant>
+<stream stream_id="HdU6Bt7GTZiHcNe4R2LHdA=="
+session_id="ho9aUhEQTRS+31th7sHStA==">
+<label>a_leg</label>
+</stream>
+<stream stream_id="T6T6syCpRSGH1J+gwLFaIQ=="
+session_id="ho9aUhEQTRS+31th7sHStA==">
+<label>b_leg</label>
+</stream>
+<participantsessionassoc
+participant_id="Ye5S5pU+SAG2JY4oG7M4Cw=="
+session_id="ho9aUhEQTRS+31th7sHStA==">
+</participantsessionassoc>
+<participantsessionassoc
+participant_id="QDhKextjTa+F1TzXuvHZHw=="
+session_id="ho9aUhEQTRS+31th7sHStA==">
+</participantsessionassoc>
+<participantstreamassoc
+participant_id="Ye5S5pU+SAG2JY4oG7M4Cw==">
+<send>HdU6Bt7GTZiHcNe4R2LHdA==</send>
+<recv>T6T6syCpRSGH1J+gwLFaIQ==</recv>
+</participantstreamassoc>
+<participantstreamassoc
+participant_id="QDhKextjTa+F1TzXuvHZHw==">
+<send>T6T6syCpRSGH1J+gwLFaIQ==</send>
+<recv>HdU6Bt7GTZiHcNe4R2LHdA==</recv>
+</participantstreamassoc>
+</recording>
