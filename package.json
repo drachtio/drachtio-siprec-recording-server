@@ -30,6 +30,7 @@
   "homepage": "https://github.com/davehorton/drachtio-siprec-recording-server#readme",
   "devDependencies": {
     "blue-tape": "^1.0.0",
+    "clear-require": "^2.0.0",
     "fs-extra": "^5.0.0",
     "istanbul": "^0.4.5",
     "tap-dot": "^1.0.5",
@@ -38,6 +39,7 @@
   },
   "dependencies": {
     "config": "^1.30.0",
+    "debug": "^3.1.0",
     "drachtio-fsmrf": "^1.1.4",
     "drachtio-srf": "^4.2.11",
     "pino": "^4.13.0",

@@ -16,7 +16,7 @@ function parseAndVerifyPayload(filename, delimiter, t) {
         }
         req.payload.push({type: arr[1], content: arr[2]}) ;
       }
-      return parsePayload(req) ;
+      return parsePayload({req}) ;
     })
     .then((obj) => {
       t.ok(obj.sdp1, 'parsed first SDP');

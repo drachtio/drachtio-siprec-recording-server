@@ -28,3 +28,5 @@ srf.use('invite', (req, res, next) => {
 });
 
 srf.invite(callHandler);
+
+module.exports = srf;

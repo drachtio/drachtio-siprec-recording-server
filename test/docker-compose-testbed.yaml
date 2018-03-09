@@ -1,0 +1,29 @@
+version: '2.1'
+
+networks:
+  siprec:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.32.0.0/16
+
+services:
+  drachtio:
+    image: drachtio/drachtio-server:latest
+    command: drachtio --contact "sip:*;transport=udp" --loglevel debug
+    ports:
+      - "9023:9022/tcp"
+    networks:
+      siprec:
+        ipv4_address: 172.32.0.2
+
+  rtpengine:
+    image: davehorton/rtpengine:latest
+    command: rtpengine --port-min 30000 --port-max 30100 --log-level 7
+    ports:
+      - "22222:22222/udp"
+    volumes:
+      - /tmp:/tmp
+    networks:
+      siprec:
+        ipv4_address: 172.32.0.3
