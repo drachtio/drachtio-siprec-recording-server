@@ -52,7 +52,8 @@ For guidance, have a look at the test suite, which uses docker-compose to create
 
 ## Test
 
-`npm test` note: docker is required
+`npm test` 
+> Note: docker is required to run the test cases
 
 ## How it works
 
