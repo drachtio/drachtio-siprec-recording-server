@@ -1,0 +1,12 @@
+{
+  "drachtio": {
+    "host": "127.0.0.1",
+    "port": 9023,
+    "secret": "cymru"
+  },
+  "freeswitch" : ["test_freeswitch_1"],
+  "redis" : {
+    "host": "127.0.0.1",
+    "port": 9379
+  }
+}

@@ -23,7 +23,25 @@ services:
     ports:
       - "22222:22222/udp"
     volumes:
-      - /tmp:/tmp
+      - ./tmp/rtpengine:/tmp
     networks:
       siprec:
         ipv4_address: 172.32.0.3
+
+  freeswitch:
+    image: davehorton/freeswitch-echo:latest
+    command: freeswitch
+    volumes:
+      - ./tmp/log:/usr/local/freeswitch/log
+      - ./tmp/recordings:/usr/local/freeswitch/recordings
+    networks:
+      siprec:
+        ipv4_address: 172.32.0.4
+
+  redis:
+    image: redis
+    ports:
+      - "9379:6379/tcp"
+    networks:
+      siprec:
+        ipv4_address: 172.32.0.5

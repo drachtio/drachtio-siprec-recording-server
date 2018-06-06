@@ -59,3 +59,8 @@ typings/
 # dotenv environment variables file
 .env
 
+test/tmp/log/**
+test/tmp/recordings/**
+test/tmp/rtpengine/pcaps/**
+test/tmp/rtpengine/metadata/**
+test/tmp/rtpengine/tmp/**

@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "jslint": "eslint lib index.js",
+    "jslint": "eslint lib app.js",
     "test": "NODE_ENV=test node test/ | ./node_modules/.bin/tap-spec",
     "coverage": "NODE_ENV=test ./node_modules/.bin/istanbul cover test/ --report html"
   },
@@ -31,6 +31,7 @@
   "devDependencies": {
     "blue-tape": "^1.0.0",
     "clear-require": "^2.0.0",
+    "dotenv": "^6.0.0",
     "fs-extra": "^5.0.0",
     "istanbul": "^0.4.5",
     "tap-dot": "^1.0.5",
@@ -40,9 +41,10 @@
   "dependencies": {
     "config": "^1.30.0",
     "debug": "^3.1.0",
-    "drachtio-fsmrf": "^1.1.4",
-    "drachtio-srf": "^4.2.11",
+    "drachtio-srf": "^4.2.18",
     "pino": "^4.13.0",
-    "rtpengine-client": "0.0.6"
+    "redis": "^2.8.0",
+    "rtpengine-client": "0.0.6",
+    "xml2js": "^0.4.19"
   }
 }
