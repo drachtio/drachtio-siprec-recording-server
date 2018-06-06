@@ -29,7 +29,7 @@ services:
         ipv4_address: 172.32.0.3
 
   freeswitch:
-    image: davehorton/freeswitch-echo:latest
+    image: davehorton/freeswitch-hairpin:latest
     command: freeswitch
     volumes:
       - ./tmp/log:/usr/local/freeswitch/log

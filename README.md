@@ -26,14 +26,21 @@ When using Freeswitch, a bit of configuration is needed on the Freeswitch server
 
 An example of a snippet of a dialplan might look like this:
 ```xml
-  <action application="export" data="sip_h_X-Return-Token=${sip_h_X-Return-Token}" />
-  <action application="set" data="RECORD_STEREO=true"/>
-  <action application="set" data="call_id=${strftime(%Y%m%d_%H%M%S)}_${sip_from_tag}"/>
-  <action application="set" data="outfile=$${base_dir}/recordings/${call_id}.wav"/> 
-  <action application="record_session" data="${outfile}"/>
-  <action application="set" data="hangup_after_bridge=true"/> 
-  <action application="bridge" data="sofia/external/${destination_number}@${network_addr}"/>
+  <extension name="hairpin_and_record">
+    <condition field="${sip_h_X-Return-Token}" expression="^(.+)$">
+      <action application="export" data="sip_h_X-Return-Token=${sip_h_X-Return-Token}" />
+      <action application="export" data="_nolocal_jitterbuffer_msec=100"/>
+      <action application="set" data="RECORD_STEREO=true"/>
+      <action application="set" data="call_id=${strftime(%Y%m%d_%H%M%S)}_${sip_from_tag}"/>
+      <action application="set" data="outfile=$${base_dir}/recordings/${call_id}.wav"/> 
+      <action application="record_session" data="${outfile}"/>
+      <action application="set" data="hangup_after_bridge=true"/> 
+      <action application="bridge" data="sofia/external/${destination_number}@${network_addr}"/>
+    </condition>
+  </extension>
 ```
+For an example docker image that implements, see [davehorton/freeswitch-hairpin](https://hub.docker.com/r/davehorton/freeswitch-hairpin/).
+
 > Note: when using Freeswitch, the application requires access to a redis server.  redis is used to track and correlate the A and B call legs, using the X-Return-Token header mentioned above.  When using rtpengine as the back-end, redis not required.
 ### Using dockerized versions of drachtio and rtpengine
 

@@ -12,6 +12,8 @@ before_install:
   - docker pull drachtio/drachtio-server:latest
   - docker pull davehorton/rtpengine:latest
   - docker pull drachtio/sipp:latest
+  - docker pull davehorton/freeswitch-hairpin:latest
+  - docker pull redis:latest
   - docker images
 
 script:
