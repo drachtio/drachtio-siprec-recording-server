@@ -1,28 +1,30 @@
 # drachtio-siprec-recording-server [![Build Status](https://secure.travis-ci.org/davehorton/drachtio-siprec-recording-server.png)](http://travis-ci.org/davehorton/drachtio-siprec-recording-server)
 
-A SIPREC recording server application based on [dractio](https://github.com/davehorton/drachtio-srf) and using either
+An open source implementation of a SIPREC recording server based on [dractio](https://drachtio.org) and using either
 * [rtpengine](https://github.com/sipwise/rtpengine) or
 * [Freeswitch](https://freeswitch.com/)
 as the back-end recording system.
 
 ## Install
 
-* Copy either `config/default.json.example-rtpengine` or `config/default.json.example-freeswitch` depending on which back-end media server you want to use (it is an either/choice: you can't mix them) to `config/local.json` and edit to provide the IP  addresses/ports for your configuration (i.e., location of drachtio and rtpengine or freeswitch). 
+This application requires a [drachtio SIP server](https://github.com/davehorton/drachtio-server) to be installed in your network.  Please refer to [the build and installation instructions here](https://drachtio.org/docs/drachtio-server), or [here](https://github.com/davehorton/drachtio-server).
+
+* Copy either `config/default.json.example-rtpengine` or `config/default.json.example-freeswitch` depending on which back-end media server you want to use (it is an either/choice: you can't mix them) to `config/local.json` and edit to provide the IP  addresses/ports for your configuration (i.e., location of tge drachtio server, and either the rtpengine or freeswitch media server). 
 * Run `npm install`
 * Run `node app` to run.
 * Configure your SBC to send SIPREC invites to your drachtio server.
 
-## Using rtpengine
+## Using rtpengine as the media server
 When using rtpengine as the recorder, there is minimal configuration you will need to do on the rtpengine server -- a vanilla install will do.  The application will use the [ng control protocol](https://github.com/sipwise/rtpengine#the-ng-control-protocol), so you will need to open the UDP port on the rtpengine server to allow commands from the server running the drachtio-siprec-recording-server application.
 
 Also, rtpengine generates recordings in pcap file format, so you will need to do some post-processing to deliver a flac, wav, mp3 or whatever final format you prefer.
 
-## Using Freeswitch
+## Using Freeswitch as the media server
 When using Freeswitch, a bit of configuration is needed on the Freeswitch server.  Specifically, you must implement a dialplan that:
 * allows unauthenticated INVITEs from the drachtio server
 * hairpins incoming calls back to the sender, by using the Freeswitch [bridge application](https://freeswitch.org/confluence/display/FREESWITCH/mod_dptools%3A+bridge) to send the B leg INVITE back to the source of the A leg INVITE
-* exports the custom 'X-Return-Token' header from the A leg to the B leg, and
-* makes a recording.
+* exports the custom 'X-Return-Token' header from the A leg to the B leg, and finally
+* makes a recording of the call.
 
 An example of a snippet of a dialplan might look like this:
 ```xml
