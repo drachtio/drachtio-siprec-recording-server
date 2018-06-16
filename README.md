@@ -9,7 +9,7 @@ as the back-end recording system.
 
 This application requires a [drachtio SIP server](https://github.com/davehorton/drachtio-server) to be installed in your network.  Please refer to [the build and installation instructions here](https://drachtio.org/docs/drachtio-server), or [here](https://github.com/davehorton/drachtio-server).
 
-* Copy either `config/default.json.example-rtpengine` or `config/default.json.example-freeswitch` depending on which back-end media server you want to use (it is an either/choice: you can't mix them) to `config/local.json` and edit to provide the IP  addresses/ports for your configuration (i.e., location of tge drachtio server, and either the rtpengine or freeswitch media server). 
+* Copy either `config/default.json.example-rtpengine` or `config/default.json.example-freeswitch` depending on which back-end media server you want to use (it is an either/choice: you can't mix them) to `config/local.json` and edit to provide the IP  addresses/ports for your configuration (i.e., location of the drachtio server, and either the rtpengine or freeswitch media server). 
 * Run `npm install`
 * Run `node app` to run.
 * Configure your SBC to send SIPREC invites to your drachtio server.
@@ -52,10 +52,16 @@ If you haven't built the [drachtio server](https://github.com/davehorton/drachti
 
 For guidance, have a look at the test suite, which uses docker-compose to create a test environment, as an example [test/docker-compose-testbed.yaml](test/docker-compose-testbed.yaml).
 
+## Interoperability
+This application has been tested with the following SIPREC clients:
+* Ribbon SBC 5200 (tested with Freeswitch back-end media server)
+* OpenSIPS (tested with rtpengine back-end media server)
+* Cisco Unified Border element (tested with rtpengine back-end media server)
 ## Test
 
 `npm test` 
-> Note: docker is required to run the test cases
+
+Note: docker is required to run the test cases
 
 ## How it works
 
