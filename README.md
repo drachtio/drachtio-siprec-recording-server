@@ -9,7 +9,7 @@ as the back-end recording system.
 
 This application requires a [drachtio SIP server](https://github.com/davehorton/drachtio-server) to be installed in your network.  Please refer to [the build and installation instructions here](https://drachtio.org/docs/drachtio-server), or [here](https://github.com/davehorton/drachtio-server).
 
-* Copy either `config/default.json.example-rtpengine` or `config/default.json.example-freeswitch` depending on which back-end media server you want to use (it is an either/choice: you can't mix them) to `config/local.json` and edit to provide the IP  addresses/ports for your configuration (i.e., location of the drachtio server, and either the rtpengine or freeswitch media server). 
+* Copy either `config/default.json.example-rtpengine` or `config/default.json.example-freeswitch` depending on which back-end media server you want to use (it is an either-or choice: you can't mix them) to `config/local.json` and edit to provide the IP  addresses/ports for your configuration (i.e., location of the drachtio server, and either the rtpengine or freeswitch media server). 
 * Run `npm install`
 * Run `node app` to run.
 * Configure your SBC to send SIPREC invites to your drachtio server.
@@ -26,7 +26,7 @@ When using Freeswitch, a bit of configuration is needed on the Freeswitch server
 * exports the custom 'X-Return-Token' header from the A leg to the B leg, and finally
 * makes a recording of the call.
 
-An example of a snippet of a dialplan might look like this:
+An example snippet of a dialplan that does the trick looks like this:
 ```xml
   <extension name="hairpin_and_record">
     <condition field="${sip_h_X-Return-Token}" expression="^(.+)$">
@@ -55,7 +55,7 @@ For guidance, have a look at the test suite, which uses docker-compose to create
 ## Interoperability
 This application has been tested with the following SIPREC clients:
 * Ribbon SBC 5200 (tested with Freeswitch back-end media server)
-* OpenSIPS (tested with rtpengine back-end media server)
+* OpenSIPS (tested with rtpengine and Freeswitch back-end media servers)
 * Cisco Unified Border element (tested with rtpengine back-end media server)
 ## Test
 
