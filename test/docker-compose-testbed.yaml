@@ -1,4 +1,4 @@
-version: '2.1'
+version: '2'
 
 networks:
   siprec:
@@ -11,6 +11,7 @@ services:
   drachtio:
     image: drachtio/drachtio-server:latest
     command: drachtio --contact "sip:*;transport=udp" --loglevel debug
+    container_name: drachtio
     ports:
       - "9023:9022/tcp"
     networks:
@@ -20,8 +21,9 @@ services:
   rtpengine:
     image: davehorton/rtpengine:latest
     command: rtpengine --port-min 30000 --port-max 30100 --log-level 7
+    container_name: rtpengine
     ports:
-      - "22222:22222/udp"
+      - "33333:22222/udp"
     volumes:
       - ./tmp/rtpengine:/tmp
     networks:
@@ -31,6 +33,7 @@ services:
   freeswitch:
     image: davehorton/freeswitch-hairpin:latest
     command: freeswitch
+    container_name: freeswitch
     volumes:
       - ./tmp/log:/usr/local/freeswitch/log
       - ./tmp/recordings:/usr/local/freeswitch/recordings
@@ -40,6 +43,7 @@ services:
 
   redis:
     image: redis
+    container_name: redis
     ports:
       - "9379:6379/tcp"
     networks:

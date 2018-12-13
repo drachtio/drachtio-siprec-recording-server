@@ -1,9 +1,11 @@
 sudo: required
 
+dist: xenial
+
 language: node_js
 
 node_js:
-  - "8"
+  - "lts/*"
 
 services:
   - docker
