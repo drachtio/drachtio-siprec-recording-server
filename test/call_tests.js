@@ -1,7 +1,6 @@
 const test = require('blue-tape');
 const { exec } = require('child_process');
 const debug = require('debug')('drachtio:siprec-recording-server');
-const fs = require('fs-extra');
 const clearRequire = require('clear-require');
 
 const execCmd = (cmd, opts) => {
@@ -70,7 +69,7 @@ test('siprec with freeswitch recorder', (t) => {
 
   clearRequire('..');
   clearRequire('config');
-  process.env.NODE_CONFIG_ENV = "test2";
+  process.env.NODE_CONFIG_ENV = 'test2';
 
   const vmap = `-v ${__dirname}/scenarios:/tmp`;
   const args = 'drachtio/sipp sipp -m 1 -sf /tmp/uac_siprec_pcap2.xml test_drachtio_1';
