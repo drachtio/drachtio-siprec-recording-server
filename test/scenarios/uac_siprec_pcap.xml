@@ -25,13 +25,13 @@
   <send retrans="500">
     <![CDATA[
 
-      INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
+      INVITE sip:drachtio:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
       From: sipp <sip:sipp@[local_ip]:[local_port]>;tag=[pid]SIPpTag09[call_number]
-      To: [service] <sip:[service]@[remote_ip]:[remote_port]>
+      To: sip:drachtio:[remote_port]
       Call-ID: [call_id]
       CSeq: 1 INVITE
-      Contact: sip:sipp@[local_ip]:[local_port]
+      Contact: <sip:[local_ip]:[local_port]>
       Max-Forwards: 70
       Subject: siprec Test
       Content-Type: multipart/mixed;boundary=690DEB64
@@ -63,48 +63,24 @@
       Content-Disposition: recording-session
 
       <?xml version="1.0" encoding="UTF-8"?>
-      <recording xmlns='urn:ietf:params:xml:ns:recording:1'>
-      <datamode>complete</datamode>
-      <session session_id="EkU/TQGyRdy9trdy5fVhMw==">
-      <start-time>2018-01-31T16:39:01Z</start-time>
-      </session>
-      <participant participant_id="aeMwTyqiR0WSadMuLxFQ7Q==">
-      <nameID aor="0876667772@speechpath.ie">
-      <name>Dave Horton;lang=en-US;id=20</name>
-      </nameID>
-      </participant>
-      <participant participant_id="H4sYFCZPR0+otUHQhfdc5g==">
-      <nameID aor="sip:35315424888@speechpath.ie">
-      <name>calleeName</name>
-      </nameID>
-      </participant>
-      <stream stream_id="Zhj6OQM0SlWgWAaoxAGjeQ=="
-      session_id="EkU/TQGyRdy9trdy5fVhMw==">
-      <label>a_leg</label>
-      </stream>
-      <stream stream_id="h6QFfhclRviedRwAQ+shrg=="
-      session_id="EkU/TQGyRdy9trdy5fVhMw==">
-      <label>b_leg</label>
-      </stream>
-      <participantsessionassoc
-      participant_id="aeMwTyqiR0WSadMuLxFQ7Q=="
-      session_id="EkU/TQGyRdy9trdy5fVhMw==">
-      </participantsessionassoc>
-      <participantsessionassoc
-      participant_id="H4sYFCZPR0+otUHQhfdc5g=="
-      session_id="EkU/TQGyRdy9trdy5fVhMw==">
-      </participantsessionassoc>
-      <participantstreamassoc
-      participant_id="aeMwTyqiR0WSadMuLxFQ7Q==">
-      <send>Zhj6OQM0SlWgWAaoxAGjeQ==</send>
-      <recv>h6QFfhclRviedRwAQ+shrg==</recv>
-      </participantstreamassoc>
-      <participantstreamassoc
-      participant_id="H4sYFCZPR0+otUHQhfdc5g==">
-      <send>h6QFfhclRviedRwAQ+shrg==</send>
-      <recv>Zhj6OQM0SlWgWAaoxAGjeQ==</recv>
-      </participantstreamassoc>
-      </recording>
+        <recording xmlns='urn:ietf:params:xml:ns:recording:1'>
+          <datamode>complete</datamode>
+          <session session_id="XoM2pKdFR8C3eX33qJKcww==">
+            <sipSessionID>hvij5wK4Wx</sipSessionID>
+          </session>
+          <participant participant_id="omFyWlFETEyFz/KXNLe4iQ==">
+          <nameID aor="sip:6001@localhost"/>
+          </participant>
+          <participant participant_id="fLbZzLMgRXGp+F5w0hOt6w==">
+            <nameID aor="sip:101@localhost"/>
+          </participant>
+          <stream stream_id="1LiAtnDVR9m469/0L4bwCA==" session_id="XoM2pKdFR8C3eX33qJKcww==">
+          <label>1</label>
+          </stream>
+          <stream stream_id="WJgj5uxeRH+nwUah02dWqg==" session_id="XoM2pKdFR8C3eX33qJKcww==">
+          <label>2</label>
+          </stream>
+        </recording>
 
       --690DEB64--
 
