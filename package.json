@@ -47,7 +47,7 @@
     "pino": "^4.13.0",
     "redis": "^2.8.0",
     "rtpengine-client": "0.0.6",
-    "sdp-transform": "^2.4.1",
+    "sdp-transform": "^2.7.0",
     "xml2js": "^0.4.19"
   }
 }

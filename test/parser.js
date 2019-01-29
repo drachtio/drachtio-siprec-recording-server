@@ -1,6 +1,22 @@
 const test = require('tape').test ;
 const parsePayload = require('./../lib/payload-parser') ;
+const combinePayloads = require('./../lib/payload-combiner') ;
 const fs = require('fs-extra') ;
+
+function combineAndVerifyPayloads(filename, delimiter, t) {
+  fs.readFile(`${__dirname}/data/${filename}`, 'utf8')
+    .then((data) => {
+      const sdp = data.split('__split_here__');
+      t.ok(sdp.length === 2, 'read two sdps');
+      const full = combinePayloads(sdp[0], sdp[1]);
+      t.pass('combined payloads');
+      t.end();
+    })
+    .catch((err) => {
+      console.error(err.stack);
+      t.error(err);
+    });
+}
 
 function parseAndVerifyPayload(filename, delimiter, t) {
   fs.readFile(`${__dirname}/data/${filename}`, 'utf8')
@@ -53,4 +69,9 @@ test('parser: Connectel SIPREC payload (2)', (t) => {
 test('parser: Connectel SIPREC payload (3)', (t) => {
   parseAndVerifyPayload('connectel-offer3.txt', '--OSS-unique-boundary-42', t) ;
 }) ;
-
+test('combiner: sample1)', (t) => {
+  combineAndVerifyPayloads('sample-sdps.txt', '__split_here__', t) ;
+}) ;
+test('combiner: sample2)', (t) => {
+  combineAndVerifyPayloads('sample-sdp2.txt', '__split_here__', t) ;
+}) ;

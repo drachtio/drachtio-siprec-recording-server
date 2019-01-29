@@ -1,0 +1,28 @@
+  
+--UniqueBroadWorksBoundary
+Content-Type:application/ +xml
+Content-Disposition:recording-session
+Content-Length:2012
+
+<recording_metadata xmlns="urn:ietf:params:xml:ns:siprec">completeSRCselectivesip:caller_name2019-01-13T14:48:35-05:00sip:caller_nameurn:uuid:e76f6cf1-181e-4f94-a137-a3dddg85b35fsip:+XXXXXXXXXX@SBC_IP;user=phoneurn:uuid:e76f6cf1-181e-4f94-a137-a3dddg85b35f1mixed1142208:1DemoCorp DemoDemoCorp -caller@democorp.comcallhalf-11473743407:0sip:+1MYPHONENUMBER@SBC_IPsip:+XXXXXXXXXX@SBC_IP;user=phonesip:RECIPIENTNUMBER@SBC_IPon</recording_metadata>
+--UniqueBroadWorksBoundary
+Content-Type: application/sdp
+Content-Length: 300
+
+v=0
+o=BroadWorks 170535024 1 IN IP4 X.X.X.X
+s=-
+c=IN IP4 X.X.X.X
+t=0 0
+m=audio 22294 RTP/AVP 8 101 0 9 18
+a=rtpmap:0 PCMU/8000
+a=rtpmap:9 G722/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:18 G729/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+a=ptime:20
+a=sendonly
+a=label:1
+
+--UniqueBroadWorksBoundary--
