@@ -75,3 +75,6 @@ test('combiner: sample1)', (t) => {
 test('combiner: sample2)', (t) => {
   combineAndVerifyPayloads('sample-sdp2.txt', '__split_here__', t) ;
 }) ;
+test('combiner: sample3)', (t) => {
+  combineAndVerifyPayloads('sample-sdp3.txt', '__split_here__', t) ;
+}) ;
