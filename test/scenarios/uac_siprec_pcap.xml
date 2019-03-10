@@ -34,7 +34,7 @@
       Contact: <sip:[local_ip]:[local_port]>
       Max-Forwards: 70
       Subject: siprec Test
-      Content-Type: multipart/mixed;boundary=690DEB64
+      Content-Type: multipart/mixed; boundary=690DEB64
       Content-Length: [len]
 
       --690DEB64
