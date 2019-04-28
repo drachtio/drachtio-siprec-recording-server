@@ -25,7 +25,7 @@ services:
     ports:
       - "33333:22222/udp"
     volumes:
-      - ./tmp/rtpengine:/tmp
+      - ./tmp/rtpengine:/tmp/rtp1
     networks:
       siprec:
         ipv4_address: 172.32.0.3
@@ -49,3 +49,16 @@ services:
     networks:
       siprec:
         ipv4_address: 172.32.0.5
+
+  rtpengine2:
+    image: davehorton/rtpengine:latest
+    command: rtpengine --port-min 30000 --port-max 30100 --log-level 7
+    container_name: rtpengine2
+    ports:
+      - "44444:22222/udp"
+    volumes:
+      - ./tmp/rtpengine:/tmp/rtp2
+    networks:
+      siprec:
+        ipv4_address: 172.32.0.6
+
