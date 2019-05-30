@@ -4,9 +4,10 @@
     "port": 9022,
     "secret": "cymru"
   },
-  "freeswitch" : ["172.32.0.4", "172.32.0.5"],
-  "redis" : {
-    "host": "127.0.0.1",
-    "port": 6379
-  }
+  "freeswitch" : {
+    "address": "127.0.0.1",
+    "port": 8021,
+    "secret": "ClueCon"
+  },
+  "wsUrl" : "ws://your-url"
 }
