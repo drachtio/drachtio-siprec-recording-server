@@ -49,10 +49,12 @@ function parseAndVerifyPayload(filename, delimiter, t) {
     });
 }
 
+test('parser: Broadworks SIPREC payload', (t) => {
+  parseAndVerifyPayload('broadworks-offer-2.txt', '--foobar', t) ;
+}) ;
 test('parser: Promcomm SIPREC payload', (t) => {
   parseAndVerifyPayload('procomm-siprec-offer.txt', '--2CD2A2E9', t) ;
 }) ;
-
 test('parser: Sonus SIPREC payload', (t) => {
   parseAndVerifyPayload('sonus-siprec-offer.txt', '--sonus-content-delim', t) ;
 }) ;
