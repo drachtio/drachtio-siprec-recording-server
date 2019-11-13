@@ -19,7 +19,7 @@ services:
         ipv4_address: 172.32.0.2
 
   rtpengine:
-    image: davehorton/rtpengine:latest
+    image: drachtio/rtpengine:latest
     command: rtpengine --port-min 30000 --port-max 30100 --log-level 7
     container_name: rtpengine
     ports:
@@ -51,7 +51,7 @@ services:
         ipv4_address: 172.32.0.5
 
   rtpengine2:
-    image: davehorton/rtpengine:latest
+    image: drachtio/rtpengine:latest
     command: rtpengine --port-min 30000 --port-max 30100 --log-level 7
     container_name: rtpengine2
     ports:
