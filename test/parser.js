@@ -71,6 +71,9 @@ test('parser: Connectel SIPREC payload (2)', (t) => {
 test('parser: Connectel SIPREC payload (3)', (t) => {
   parseAndVerifyPayload('connectel-offer3.txt', '--OSS-unique-boundary-42', t) ;
 }) ;
+test('parser: Avaya SIPREC payload', (t) => {
+  parseAndVerifyPayload('avaya-siprec-offer.txt', '--unique-boundary-1', t) ;
+}) ;
 test('combiner: sample1)', (t) => {
   combineAndVerifyPayloads('sample-sdps.txt', '__split_here__', t) ;
 }) ;
