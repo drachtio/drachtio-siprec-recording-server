@@ -74,12 +74,12 @@ test('parser: Connectel SIPREC payload (3)', (t) => {
 test('parser: Avaya SIPREC payload', (t) => {
   parseAndVerifyPayload('avaya-siprec-offer.txt', '--unique-boundary-1', t) ;
 }) ;
-test('combiner: sample1)', (t) => {
+test('combiner: sample (1)', (t) => {
   combineAndVerifyPayloads('sample-sdps.txt', '__split_here__', t) ;
 }) ;
-test('combiner: sample2)', (t) => {
+test('combiner: sample (2)', (t) => {
   combineAndVerifyPayloads('sample-sdp2.txt', '__split_here__', t) ;
 }) ;
-test('combiner: sample3)', (t) => {
+test('combiner: sample (3)', (t) => {
   combineAndVerifyPayloads('sample-sdp3.txt', '__split_here__', t) ;
 }) ;

@@ -1,0 +1,50 @@
+version: '2'
+
+networks:
+  siprec:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.32.0.0/16
+
+services:
+  drachtio:
+    image: drachtio/drachtio-server:latest
+    command: drachtio --contact "sip:*;transport=udp" --loglevel debug
+    container_name: drachtio
+    ports:
+      - "9023:9022/tcp"
+    networks:
+      siprec:
+        ipv4_address: 172.32.0.2
+
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "9379:6379/tcp"
+    networks:
+      siprec:
+        ipv4_address: 172.32.0.3
+
+  freeswitch:
+    image: davehorton/freeswitch-hairpin:latest
+    command: freeswitch
+    container_name: freeswitch
+    volumes:
+      - ./tmp/log:/tmp/freeswitch/log
+      - ./tmp/recordings:/tmp/freeswitch/recordings
+    networks:
+      siprec:
+        ipv4_address: 172.32.0.4
+        
+  freeswitch2:
+    image: davehorton/freeswitch-hairpin:latest
+    command: freeswitch
+    container_name: freeswitch2
+    volumes:
+      - ./tmp/log:/tmp/freeswitch/log2
+      - ./tmp/recordings:/tmp/freeswitch/recordings2
+    networks:
+      siprec:
+        ipv4_address: 172.32.0.5

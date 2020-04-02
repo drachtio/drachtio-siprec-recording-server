@@ -30,26 +30,6 @@ services:
       siprec:
         ipv4_address: 172.32.0.3
 
-  freeswitch:
-    image: davehorton/freeswitch-hairpin:latest
-    command: freeswitch
-    container_name: freeswitch
-    volumes:
-      - ./tmp/log:/usr/local/freeswitch/log
-      - ./tmp/recordings:/usr/local/freeswitch/recordings
-    networks:
-      siprec:
-        ipv4_address: 172.32.0.4
-
-  redis:
-    image: redis
-    container_name: redis
-    ports:
-      - "9379:6379/tcp"
-    networks:
-      siprec:
-        ipv4_address: 172.32.0.5
-
   rtpengine2:
     image: drachtio/rtpengine:latest
     command: rtpengine --port-min 30000 --port-max 30100 --log-level 7
@@ -60,5 +40,4 @@ services:
       - ./tmp/rtpengine:/tmp/rtp2
     networks:
       siprec:
-        ipv4_address: 172.32.0.6
-
+        ipv4_address: 172.32.0.4
