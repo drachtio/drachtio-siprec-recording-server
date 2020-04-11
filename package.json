@@ -43,7 +43,7 @@
   "dependencies": {
     "config": "^1.30.0",
     "debug": "^3.1.0",
-    "drachtio-srf": "^4.4.3",
+    "drachtio-srf": "^4.4.31",
     "pino": "^4.13.0",
     "redis": "^2.8.0",
     "rtpengine-client": "0.0.6",
