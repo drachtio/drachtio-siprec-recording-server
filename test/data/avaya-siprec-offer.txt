@@ -1,0 +1,74 @@
+
+--unique-boundary-1
+Content-Type: application/sdp
+
+v=0
+o=- 15345885 220 IN IP4 10.89.88.243
+s=-
+c=IN IP4 10.89.88.244
+t=0 0
+m=audio 33802 RTP/AVP 8 18 101
+a=rtpmap:8 PCMA/8000
+a=rtpmap:18 G729/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+a=ptime:20
+a=label:201835599
+a=sendonly
+m=audio 33806 RTP/AVP 8 101
+a=rtpmap:101 telephone-event/8000
+a=ptime:20
+a=label:201835600
+a=sendonly
+
+--unique-boundary-1
+Content-Type: application/rs-metadata+xml
+Content-Disposition: recording-session
+
+<?xml version='1.0' encoding='UTF-8'?>
+<recording xmlns='urn:ietf:params:xml:ns:recording'>
+	<datamode>complete</datamode>
+	<session id="0rBXFi0CTBB0j8HyGBBrlg==">
+		<associate-time>2020-03-27T13:56:05</associate-time>
+		<extensiondata xmlns:apkt="http://acmepacket.com/siprec/extensiondata">
+			<apkt:ucid>00FA081003B9CF5E7DF7E5;encoding=hex</apkt:ucid>
+			<apkt:callerOrig>true</apkt:callerOrig>
+		</extensiondata>
+	</session>
+	<participant id="ARlTfnirTkxisET9jl8njg==" session="0rBXFi0CTBB0j8HyGBBrlg==">
+		<nameID aor="sip:31624895902@10.10.128.62">
+			<name>31624895902</name>
+		</nameID>
+		<send>0CWQGFVzQf5hAGoO9gnx8g==</send>
+		<associate-time>2020-03-27T13:56:05</associate-time>
+		<extensiondata xmlns:apkt="http://acmepacket.com/siprec/extensiondata">
+			<apkt:callingParty>true</apkt:callingParty>
+			<apkt:request-uri>sip:33187164021@10.77.91.46:5060</apkt:request-uri>
+			<apkt:realm>Avaya-GR-REC</apkt:realm>
+			<apkt:header label="Call-ID">
+				<value>134485702_44821128@10.10.128.62</value>
+			</apkt:header>
+		</extensiondata>
+	</participant>
+	<participant id="L1OKBsjoTO11Pn5uow6ptQ==" session="0rBXFi0CTBB0j8HyGBBrlg==">
+		<nameID aor="sip:33187164021@sip.webhelpgroupe.lan">
+			<name>33187164021</name>
+		</nameID>
+		<send>oOmIeCrQRZ1zaHo/DHE5og==</send>
+		<associate-time>2020-03-27T13:56:05</associate-time>
+		<extensiondata xmlns:apkt="http://acmepacket.com/siprec/extensiondata">
+			<apkt:callingParty>false</apkt:callingParty>
+		</extensiondata>
+	</participant>
+	<stream id="0CWQGFVzQf5hAGoO9gnx8g==" session="0rBXFi0CTBB0j8HyGBBrlg==">
+		<label>201835599</label>
+		<mode>separate</mode>
+		<associate-time>2020-03-27T13:56:05</associate-time>
+	</stream>
+	<stream id="oOmIeCrQRZ1zaHo/DHE5og==" session="0rBXFi0CTBB0j8HyGBBrlg==">
+		<label>201835600</label>
+		<mode>separate</mode>
+		<associate-time>2020-03-27T13:56:05</associate-time>
+	</stream>
+</recording>
+--unique-boundary-1--
