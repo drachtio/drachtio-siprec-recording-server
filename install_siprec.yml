@@ -1,0 +1,39 @@
+---
+- hosts: drachtio
+  become: yes
+  remote_user: devops
+  roles:
+    - weareinteractive.pm2
+  vars:
+    src_path: ~/src/drachtio-siprec-recording-server/
+    dst_path: /usr/local/src/
+    project: siprec-server
+
+    pm2_user: root
+    pm2_upstart: no
+    # Common
+    pm2_cmds:
+      - run: delete
+        args: siprec-server
+        ignore_errors: yes
+    pm2_apps:
+      - run: app.js
+        path: "{{ dst_path }}{{ project }}"
+        cmd: start
+        args: --name siprec-server
+    pm2_apps_default_env:
+      NODE_ENV: production
+  pre_tasks:
+      - name: Create destination directory
+        file:
+          state: directory
+          path: "{{ dst_path }}{{ project }}"
+          owner: devops
+          group: devops
+          mode: 0755
+      - name: Copy files to remote host
+        synchronize:
+          src: "{{ src_path }}"
+          dest: "{{ dst_path }}{{ project }}"
+      - name: Install Redis
+        command: apt install -y redis-server
