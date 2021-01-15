@@ -7,7 +7,7 @@ as the back-end recording system.
 
 ## Install
 
-This application requires a [drachtio SIP server](https://github.com/davehorton/drachtio-server) to be installed in your network.  Please refer to [the build and installation instructions here](https://drachtio.org/docs/drachtio-server), or [here](https://github.com/davehorton/drachtio-server).
+This application requires a [drachtio SIP server](https://github.com/drachtio/drachtio-server) to be installed in your network.  Please refer to [the build and installation instructions here](https://drachtio.org/docs/drachtio-server), or [here](https://github.com/drachtio/drachtio-server).
 
 * Copy either `config/default.json.example-rtpengine` or `config/default.json.example-freeswitch` depending on which back-end media server you want to use (it is an either-or choice: you can't mix them) to `config/local.json` and edit to provide the IP  addresses/ports for your configuration (i.e., location of the drachtio server, and either the rtpengine or freeswitch media server). 
 * Run `npm install`
@@ -46,7 +46,7 @@ For an example docker image that implements, see [davehorton/freeswitch-hairpin]
 > Note: when using Freeswitch, the application requires access to a redis server.  redis is used to track and correlate the A and B call legs, using the X-Return-Token header mentioned above.  When using rtpengine as the back-end, redis not required.
 ### Using dockerized versions of drachtio and rtpengine
 
-If you haven't built the [drachtio server](https://github.com/davehorton/drachtio-server) and rtpengine processes (and don't want to), you can run using these docker images:
+If you haven't built the [drachtio server](https://github.com/drachtio/drachtio-server) and rtpengine processes (and don't want to), you can run using these docker images:
 * [rtpengine](https://cloud.docker.com/swarm/davehorton/repository/docker/davehorton/rtpengine)
 * [drachtio-server](https://cloud.docker.com/swarm/drachtio/repository/docker/drachtio/drachtio-server)
 
