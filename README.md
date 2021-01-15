@@ -1,4 +1,4 @@
-# drachtio-siprec-recording-server [![Build Status](https://secure.travis-ci.org/davehorton/drachtio-siprec-recording-server.png)](http://travis-ci.org/davehorton/drachtio-siprec-recording-server)
+# drachtio-siprec-recording-server ![Build Status](https://github.com/drachtio/drachtio-siprec-recording-server/workflows/CI/badge.svg)
 
 An open source implementation of a SIPREC recording server based on [dractio](https://drachtio.org) and using either
 * [rtpengine](https://github.com/sipwise/rtpengine) or
