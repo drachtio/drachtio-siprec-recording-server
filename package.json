@@ -7,11 +7,11 @@
     "start": "node app.js",
     "jslint": "eslint lib app.js",
     "test": "NODE_ENV=test node test/ | ./node_modules/.bin/tap-spec",
-    "coverage": "NODE_ENV=test ./node_modules/.bin/istanbul cover test/ --report html"
+    "coverage": "./node_modules/.bin/nyc --reporter html --report-dir ./coverage npm run test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davehorton/drachtio-siprec-recording-server.git"
+    "url": "git+https://github.com/drachtio/drachtio-siprec-recording-server.git"
   },
   "keywords": [
     "sip",
@@ -25,29 +25,28 @@
   "author": "Dave Horton",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/davehorton/drachtio-siprec-recording-server/issues"
+    "url": "https://github.com/drachtio/drachtio-siprec-recording-server/issues"
   },
-  "homepage": "https://github.com/davehorton/drachtio-siprec-recording-server#readme",
+  "homepage": "https://github.com/drachtio/drachtio-siprec-recording-server#readme",
   "devDependencies": {
     "blue-tape": "^1.0.0",
     "clear-require": "^2.0.0",
-    "dotenv": "^6.0.0",
-    "eslint": "^5.10.0",
-    "eslint-plugin-promise": "^4.0.1",
     "fs-extra": "^5.0.0",
-    "istanbul": "^0.4.5",
-    "tap-dot": "^2.0.0",
     "tap-spec": "^5.0.0",
-    "tape": "^4.9.1"
+    "tape": "^4.13.3"
   },
   "dependencies": {
-    "config": "^1.30.0",
-    "debug": "^3.1.0",
-    "drachtio-srf": "^4.4.31",
-    "pino": "^4.13.0",
+    "config": "^1.31.0",
+    "debug": "^3.2.7",
+    "drachtio-srf": "^4.4.45",
+    "eslint": "^7.17.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "lodash": "^4.17.20",
+    "pino": "^4.17.6",
     "redis": "^2.8.0",
-    "rtpengine-client": "0.0.6",
-    "sdp-transform": "^2.7.0",
-    "xml2js": "^0.4.19"
+    "rtpengine-client": "^0.1.1",
+    "sdp-transform": "^2.14.1",
+    "uuid": "^8.3.2",
+    "xml2js": "^0.4.23"
   }
 }
