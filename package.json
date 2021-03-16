@@ -1,6 +1,6 @@
 {
   "name": "drachtio-siprec-recording-server",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "SIPREC recording server built using drachtio and rtpengine",
   "main": "app.js",
   "scripts": {
@@ -38,7 +38,7 @@
   "dependencies": {
     "config": "^1.31.0",
     "debug": "^3.2.7",
-    "drachtio-srf": "^4.4.45",
+    "drachtio-srf": "^4.4.48",
     "eslint": "^7.17.0",
     "eslint-plugin-promise": "^4.2.1",
     "lodash": "^4.17.20",
