@@ -1,0 +1,67 @@
+
+--uniqueBoundary
+Content-Type: application/sdp
+Content-Disposition: session;handling=required
+
+v=0
+o=CiscoSystemsSIP-GW-UserAgent 5179 6446 IN IP4 192.168.1.2
+s=SIP Call
+c=IN IP4 192.168.1.2
+t=0 0
+m=audio 19254 RTP/AVP 0 101 19
+c=IN IP4 192.168.1.2
+a=rtpmap:0 PCMU/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-16
+a=rtpmap:19 CN/8000
+a=ptime:20
+a=inactive
+a=label:1
+m=audio 19236 RTP/AVP 0 101 19
+c=IN IP4 192.168.1.2
+a=rtpmap:0 PCMU/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-16
+a=rtpmap:19 CN/8000
+a=ptime:20
+a=inactive
+a=label:2
+
+--uniqueBoundary
+Content-Type: application/rs-metadata+xml
+Content-Disposition: recording-session
+
+<?xml version="1.0" encoding="UTF-8"?>
+<recording xmlns="urn:ietf:params:xml:ns:recording:1">
+    <datamode>complete</datamode>
+    <session session_id="GZBIusaXEeuxxK1dFIaIyA==">
+        <sipSessionID>f845891467cf5c2189987435807bd432;remote=1aa1123b8825c906d03681ba23102629</sipSessionID>
+        <start-time>2021-06-07T07:16:23.618Z</start-time>
+    </session>
+    <participant participant_id="GZBIusaXEeuxxa1dFIaIyA==">
+        <nameID aor="sip:0733165805@192.168.40.34">
+        </nameID>
+    </participant>
+    <participantsessionassoc participant_id="GZBIusaXEeuxxa1dFIaIyA==" session_id="GZBIusaXEeuxxK1dFIaIyA==">
+        <associate-time>2021-06-07T07:16:23.618Z</associate-time>
+    </participantsessionassoc>
+    <stream stream_id="GbZGg8aXEeuxy61dFIaIyA==" session_id="GZBIusaXEeuxxK1dFIaIyA==">
+        <label>1</label>
+    </stream>
+    <participant participant_id="GZBIusaXEeuxxq1dFIaIyA==">
+        <nameID aor="sip:+972546136443@192.168.10.140">
+        </nameID>
+    </participant>
+    <participantsessionassoc participant_id="GZBIusaXEeuxxq1dFIaIyA==" session_id="GZBIusaXEeuxxK1dFIaIyA==">
+        <associate-time>2021-06-07T07:16:23.618Z</associate-time>
+    </participantsessionassoc>
+    <stream stream_id="GbZGg8aXEeuxzK1dFIaIyA==" session_id="GZBIusaXEeuxxK1dFIaIyA==">
+        <label>2</label>
+    </stream>
+    <participantstreamassoc participant_id="GZBIusaXEeuxxa1dFIaIyA==">
+    </participantstreamassoc>
+    <participantstreamassoc participant_id="GZBIusaXEeuxxq1dFIaIyA==">
+    </participantstreamassoc>
+</recording>
+
+--uniqueBoundary--
