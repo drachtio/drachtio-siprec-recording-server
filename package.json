@@ -38,13 +38,13 @@
   "dependencies": {
     "config": "^1.31.0",
     "debug": "^3.2.7",
-    "drachtio-srf": "^4.4.48",
+    "drachtio-srf": "^4.4.50",
     "eslint": "^7.17.0",
     "eslint-plugin-promise": "^4.2.1",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "pino": "^4.17.6",
     "redis": "^2.8.0",
-    "rtpengine-client": "^0.1.1",
+    "rtpengine-client": "^0.2.0",
     "sdp-transform": "^2.14.1",
     "uuid": "^8.3.2",
     "xml2js": "^0.4.23"
