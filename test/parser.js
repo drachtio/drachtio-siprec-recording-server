@@ -35,11 +35,7 @@ function parseAndVerifyPayload(filename, delimiter, t) {
       return parsePayload({req}) ;
     })
     .then((obj) => {
-      t.ok(obj.sdp1, 'parsed first SDP');
-      t.ok(obj.sdp2, 'parsed second SDP');
-      t.ok(obj.caller.aor, 'parsed caller aor');
-      t.ok(obj.sessionId, `parsed session id ${obj.sessionId}`);
-      t.ok(obj.recordingSessionId, `parsed recording session id: ${obj.recordingSessionId}`);
+      t.ok(obj.sdp, 'parsed first SDP');
       t.end();
       return;
     })
@@ -48,36 +44,6 @@ function parseAndVerifyPayload(filename, delimiter, t) {
       t.error(err);
     });
 }
-test('parser: Broadworks SIPREC payload', (t) => {
-  parseAndVerifyPayload('broadworks-offer-2.txt', '--foobar', t) ;
-}) ;
-test('parser: Promcomm SIPREC payload', (t) => {
-  parseAndVerifyPayload('procomm-siprec-offer.txt', '--2CD2A2E9', t) ;
-}) ;
-test('parser: Sonus SIPREC payload', (t) => {
-  parseAndVerifyPayload('sonus-siprec-offer.txt', '--sonus-content-delim', t) ;
-}) ;
-test('parser: Cisco SIPREC payload', (t) => {
-  parseAndVerifyPayload('cisco-siprec-offer.txt', '--uniqueBoundary', t) ;
-}) ;
-test('parser: Connectel SIPREC payload', (t) => {
-  parseAndVerifyPayload('connectel-offer.txt', '--OSS-unique-boundary-42', t) ;
-}) ;
-test('parser: Connectel SIPREC payload (2)', (t) => {
-  parseAndVerifyPayload('connectel-offer2.txt', '--OSS-unique-boundary-42', t) ;
-}) ;
-test('parser: Connectel SIPREC payload (3)', (t) => {
-  parseAndVerifyPayload('connectel-offer3.txt', '--OSS-unique-boundary-42', t) ;
-}) ;
-test('parser: inactive sdp', (t) => {
-  parseAndVerifyPayload('inactive-sdp-offer.txt', '--uniqueBoundary', t) ;
-}) ;
-test('combiner: sample1)', (t) => {
-  combineAndVerifyPayloads('sample-sdps.txt', '__split_here__', t) ;
-}) ;
-test('combiner: sample2)', (t) => {
-  combineAndVerifyPayloads('sample-sdp2.txt', '__split_here__', t) ;
-}) ;
-test('combiner: sample3)', (t) => {
-  combineAndVerifyPayloads('sample-sdp3.txt', '__split_here__', t) ;
+test('parser: Intrado Viper SIPREC payload', (t) => {
+  parseAndVerifyPayload('intrado-siprec-invite.txt', '--Itro-wXyZ-bdry', t) ;
 }) ;

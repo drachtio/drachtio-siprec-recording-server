@@ -1,0 +1,79 @@
+INVITE sip:20.107.248.114:5060 SIP/2.0
+Via: SIP/2.0/TCP 10.106.2.10:5060;branch=z9hG4bK34781885
+Max-Forwards: 70
+From: "NOCALLERID" <sip:NOCALLERID@10.106.2.10>;tag=as13e1f4e1
+To: <sip:20.107.248.114:5060>
+Contact: <sip:7374@10.106.2.10:5060;transport=TCP>;+sip.src
+Call-ID: 6c953981285cde0446619ca30087d35a@10.106.2.10:5060
+CSeq: 102 INVITE
+User-Agent: VIPER
+Date: Thu, 21 Jul 2022 18:36:06 GMT
+Require: siprec
+Accept: application/rs-metadata
+Accept: application/rs-metadata-request
+Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, UPDATE
+Supported: siprec
+Call-Info: (null)
+x-Call-Direction: incoming
+Content-Type: multipart/mixed;boundary=Itro-wXyZ-bdry
+Content-Length: 1862
+
+
+--Itro-wXyZ-bdry
+Content-Type: application/sdp
+
+v=0
+o=SRC 1518687853 1518687853 IN IP4 10.106.2.10
+s=Asterisk PBX 13.6.0
+c=IN IP4 10.106.2.10
+t=0 0
+m=audio 11854 RTP/AVP 0 8 101
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-16
+a=maxptime:150
+a=sendonly
+a=label:1
+
+--Itro-wXyZ-bdry
+Content-Type: application/rs-metadata
+Content-Disposition: recording-session
+
+<?xml version="1.0" encoding="UTF-8"?>
+<recording xmlns='urn:ietf:params:xml:ns:recording:1'>
+<dataMode>complete</dataMode>
+<group group_id="ZWIxYWRkOTAtYjg4Ny00ZWVhLWFjYWMtZWRl">
+<associate-time>2022-07-21T12:36:06-06:00</associate-time>
+</group>
+<session session_id="ZGI2NDQ1MzItODBmOC00ZDBhLTlhMDMtNjg2">
+<start-time>2022-07-21T12:36:06-06:00</start-time>
+<group-ref>ZWIxYWRkOTAtYjg4Ny00ZWVhLWFjYWMtZWRl</group-ref>
+</session>
+<sessionrecordingassoc session_id="ZGI2NDQ1MzItODBmOC00ZDBhLTlhMDMtNjg2">
+<associate-time>2022-07-21T12:36:06-06:00</associate-time>
+</sessionrecordingassoc>
+<stream stream_id="ZDY2YTc1YTMtYTAzZi00ZDQwLTkzNmYtYTFm"
+session_id="ZGI2NDQ1MzItODBmOC00ZDBhLTlhMDMtNjg2">
+<label>1</label>
+</stream>
+<participant participant_id="YTllOTVhZTgtZjY4MS00YTBjLWIxOGUtYTQw">
+<nameID aor="4058327108@10.105.190.136:5060">
+<name xml:lang="en"></name>
+</nameID>
+<channel>SIP/911202-073e</channel>
+<role>calling</role>
+</participant>
+<participantsessionassoc
+participant_id="YTllOTVhZTgtZjY4MS00YTBjLWIxOGUtYTQw"
+session_id="ZGI2NDQ1MzItODBmOC00ZDBhLTlhMDMtNjg2">
+<associate-time>2022-07-21T12:36:06-06:00</associate-time>
+</participantsessionassoc>
+<participantstreamassoc
+participant_id="YTllOTVhZTgtZjY4MS00YTBjLWIxOGUtYTQw">
+<send>ZDY2YTc1YTMtYTAzZi00ZDQwLTkzNmYtYTFm</send>
+<recv>ZDY2YTc1YTMtYTAzZi00ZDQwLTkzNmYtYTFm</recv>
+</participantstreamassoc>
+</recording>
+
+--Itro-wXyZ-bdry--
