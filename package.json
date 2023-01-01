@@ -36,7 +36,7 @@
     "tape": "^4.13.3"
   },
   "dependencies": {
-    "config": "^1.31.0",
+    "config": "^3.3.8",
     "debug": "^3.2.7",
     "drachtio-srf": "^4.4.50",
     "eslint": "^7.17.0",
