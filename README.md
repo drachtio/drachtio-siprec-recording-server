@@ -109,6 +109,7 @@ This application has been tested with the following SIPREC clients:
 * Ribbon SBC 5200 (tested with Freeswitch back-end media server)
 * OpenSIPS (tested with rtpengine and Freeswitch back-end media servers)
 * Cisco Unified Border element (tested with rtpengine back-end media server)
+* Oracle Enterprise Session Border Controller
 ## Test
 
 `npm test` 
