@@ -49,7 +49,7 @@ For an example docker image that implements, see [davehorton/freeswitch-hairpin]
 ## Using Asterisk as media server instead of Freeswitch
 We can mimic the same behavior with Asterisk. For this to work we need to leave the 'config/local.json' as it is for freeswitch. Asterisk will receive a call and send another one back to drachtio sip server. The same steps described above can be done in Asterisk by modifying the pjsip.conf and extensions.conf files:
 1- Allows authenticated INVITEs from drachtio server. Add these settings to your 'pjsip.conf' file:
-
+```
 [drachtio_in]
 type=endpoint
 context=siprec
@@ -77,9 +77,9 @@ match=<IP HERE>
 [drachtio_out]
 type=aor
 contact=sip:<IP HERE>:5060
-
+```
 2- Hairpin the incoming call back to the server. Add these setings to your 'extensions.conf" file:
-
+```
 [siprec]
 exten => _[+*#0-9]!,1,NoOp(Receiving call from drachtio)
 exten => _[+*#0-9]!,n,Set(XReturnHeader=${PJSIP_HEADER(read,X-Return-Token)})
@@ -94,7 +94,7 @@ exten => _[+*#0-9]!,n,HangUp()
 [addHeaders]
 exten => addHeaderXRetHdr,1,Set(PJSIP_HEADER(add,X-Return-Token)=${ARG1})
 same => n,Return()
-
+```
 ### Using dockerized versions of drachtio and rtpengine
 
 If you haven't built the [drachtio server](https://github.com/drachtio/drachtio-server) and rtpengine processes (and don't want to), you can run using these docker images:
