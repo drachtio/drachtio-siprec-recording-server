@@ -48,6 +48,7 @@ For an example docker image that implements, see [davehorton/freeswitch-hairpin]
 
 ## Using Asterisk as media server instead of Freeswitch
 We can mimic the same behavior with Asterisk. For this to work we need to leave the 'config/local.json' as it is for freeswitch. Asterisk will receive a call and send another one back to drachtio sip server. The same steps described above can be done in Asterisk by modifying the pjsip.conf and extensions.conf files:
+
 1- Allows authenticated INVITEs from drachtio server. Add these settings to your 'pjsip.conf' file:
 
 [drachtio_in]
