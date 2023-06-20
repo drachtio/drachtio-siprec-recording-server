@@ -99,8 +99,8 @@ same => n,Return()
 ### Using dockerized versions of drachtio and rtpengine
 
 If you haven't built the [drachtio server](https://github.com/drachtio/drachtio-server) and rtpengine processes (and don't want to), you can run using these docker images:
-* [rtpengine](https://cloud.docker.com/swarm/davehorton/repository/docker/davehorton/rtpengine)
-* [drachtio-server](https://cloud.docker.com/swarm/drachtio/repository/docker/drachtio/drachtio-server)
+* [rtpengine](https://hub.docker.com/r/davehorton/rtpengine)
+* [drachtio-server](https://hub.docker.com/r/drachtio/drachtio-server)
 
 For guidance, have a look at the test suite, which uses docker-compose to create a test environment, as an example [test/docker-compose-testbed.yaml](test/docker-compose-testbed.yaml).
 
