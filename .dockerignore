@@ -1,0 +1,8 @@
+.git
+.github
+.gitignore
+.dockerignore
+Dockerfile
+node_modules
+test
+docker-compose-testbed.yaml
