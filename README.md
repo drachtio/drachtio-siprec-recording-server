@@ -7,6 +7,11 @@ An open source implementation of a SIPREC recording server based on
 - [Freeswitch](https://freeswitch.com/)
 - [Asterisk](https://asterisk.org) as the back-end recording system.
 
+## RapidSOS Customization
+
+Use `rsos_main` branch and not `main`. `main` is reserved for syncing with the
+upstream repo.
+
 ## Install
 
 This application requires a
