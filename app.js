@@ -21,6 +21,8 @@ else {
 if (config.has('rtpengine')) {
   logger.info(config.get('rtpengine'), 'using rtpengine as the recorder');
   callHandler = require('./lib/rtpengine-call-handler');
+  // start DTMF listener
+  require('./lib/dtmf-event-handler')(logger);
 
   // we only want to deal with siprec invites (having multipart content) in this application
   srf.use('invite', (req, res, next) => {
