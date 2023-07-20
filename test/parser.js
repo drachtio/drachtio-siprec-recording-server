@@ -2,6 +2,8 @@ const test = require('tape').test ;
 const parsePayload = require('./../lib/payload-parser') ;
 const combinePayloads = require('./../lib/payload-combiner') ;
 const fs = require('fs-extra') ;
+const pino = require('pino');
+const logger = pino();
 
 function combineAndVerifyPayloads(filename, delimiter, t) {
   fs.readFile(`${__dirname}/data/${filename}`, 'utf8')
@@ -32,7 +34,7 @@ function parseAndVerifyPayload(filename, delimiter, t) {
         }
         req.payload.push({type: arr[1], content: arr[2]}) ;
       }
-      return parsePayload({req}) ;
+      return parsePayload(req, logger) ;
     })
     .then((obj) => {
       t.ok(obj.sdp1, 'parsed first SDP');
