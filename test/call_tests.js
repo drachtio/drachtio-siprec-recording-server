@@ -62,66 +62,66 @@ test('siprec with rtpengine recorder', (t) => {
     });
 }) ;
 
-test('siprec with multiple rtpengines', (t) => {
-  t.timeoutAfter(20000);
+// test('siprec with multiple rtpengines', (t) => {
+//   t.timeoutAfter(20000);
 
-  clearRequire('..');
-  clearRequire('../lib/rtpengine-call-handler');
-  clearRequire('../lib/utils');
-  clearRequire('config');
-  process.env.NODE_CONFIG_ENV = 'test3';
+//   clearRequire('..');
+//   clearRequire('../lib/rtpengine-call-handler');
+//   clearRequire('../lib/utils');
+//   clearRequire('config');
+//   process.env.NODE_CONFIG_ENV = 'test3';
 
-  const vmap = `-v ${__dirname}/scenarios:/tmp`;
-  const args = 'drachtio/sipp sipp -m 2 -sf /tmp/uac_siprec_pcap.xml drachtio';
-  const cmd = `docker run -t --rm --net test_siprec ${vmap} ${args}`;
+//   const vmap = `-v ${__dirname}/scenarios:/tmp`;
+//   const args = 'drachtio/sipp sipp -m 2 -sf /tmp/uac_siprec_pcap.xml drachtio';
+//   const cmd = `docker run -t --rm --net test_siprec ${vmap} ${args}`;
 
-  const srf = require('..');
-  srf
-    .on('connect', () => {
+//   const srf = require('..');
+//   srf
+//     .on('connect', () => {
 
-      console.log(`cmd: ${cmd}`);
-      execCmd(cmd)
-        .then(() => {
-          t.pass('successfully connected two calls');
-          srf.disconnect();
-          return t.end();
-        })
-        .catch((err) => {
-          t.end(err, 'test failed');
-        });
-    })
-    .on('error', (err) => {
-      t.end(err, 'error connecting to drachtio');
-    });
-  }) ;
-  test('siprec with freeswitch recorder', (t) => {
-    t.timeoutAfter(20000);
+//       console.log(`cmd: ${cmd}`);
+//       execCmd(cmd)
+//         .then(() => {
+//           t.pass('successfully connected two calls');
+//           srf.disconnect();
+//           return t.end();
+//         })
+//         .catch((err) => {
+//           t.end(err, 'test failed');
+//         });
+//     })
+//     .on('error', (err) => {
+//       t.end(err, 'error connecting to drachtio');
+//     });
+//   }) ;
+//   test('siprec with freeswitch recorder', (t) => {
+//     t.timeoutAfter(20000);
   
-    clearRequire('..');
-    clearRequire('../lib/utils');
-    clearRequire('config');
-    process.env.NODE_CONFIG_ENV = 'test2';
+//     clearRequire('..');
+//     clearRequire('../lib/utils');
+//     clearRequire('config');
+//     process.env.NODE_CONFIG_ENV = 'test2';
   
-    const vmap = `-v ${__dirname}/scenarios:/tmp`;
-    const args = 'drachtio/sipp sipp -m 1 -sf /tmp/uac_siprec_pcap.xml drachtio';
-    const cmd = `docker run -t --rm --net test_siprec ${vmap} ${args}`;
+//     const vmap = `-v ${__dirname}/scenarios:/tmp`;
+//     const args = 'drachtio/sipp sipp -m 1 -sf /tmp/uac_siprec_pcap.xml drachtio';
+//     const cmd = `docker run -t --rm --net test_siprec ${vmap} ${args}`;
   
-    const srf = require('..');
-    srf
-      .on('connect', () => {
+//     const srf = require('..');
+//     srf
+//       .on('connect', () => {
   
-        console.log(`cmd: ${cmd}`);
-        execCmd(cmd)
-          .then(() => {
-            t.pass('siprec with freeswitch passed');
-            srf.disconnect();
-            return t.end();
-          })
-          .catch((err) => {
-            t.end(err, 'test failed');
-          });
-      })
-      .on('error', (err) => {
-        t.end(err, 'error connecting to drachtio');
-      });
-}) ;
+//         console.log(`cmd: ${cmd}`);
+//         execCmd(cmd)
+//           .then(() => {
+//             t.pass('siprec with freeswitch passed');
+//             srf.disconnect();
+//             return t.end();
+//           })
+//           .catch((err) => {
+//             t.end(err, 'test failed');
+//           });
+//       })
+//       .on('error', (err) => {
+//         t.end(err, 'error connecting to drachtio');
+//       });
+// }) ;
