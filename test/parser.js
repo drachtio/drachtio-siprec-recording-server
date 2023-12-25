@@ -8,7 +8,7 @@ function combineAndVerifyPayloads(filename, delimiter, t) {
     .then((data) => {
       const sdp = data.split('__split_here__');
       t.ok(sdp.length === 2, 'read two sdps');
-      const full = combinePayloads(sdp[0], sdp[1]);
+      const full = combinePayloads(sdp[0], sdp[1], sdp[0], sdp[1]);
       t.pass('combined payloads');
       t.end();
     })
