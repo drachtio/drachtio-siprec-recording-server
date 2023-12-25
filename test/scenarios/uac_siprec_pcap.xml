@@ -125,6 +125,98 @@
     </action>
   </nop>
 
+<send>
+  <![CDATA[
+
+  INVITE sip:drachtio:[remote_port] SIP/2.0
+  Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+  From: sipp <sip:sipp@[local_ip]:[local_port]>;tag=[pid]SIPpTag09[call_number]
+  To: sip:drachtio:[remote_port][peer_tag_param]
+  Call-ID: [call_id]
+  CSeq: 2 INVITE
+  Contact: <sip:[local_ip]:[local_port]>
+  Max-Forwards: 70
+  Subject: siprec Test
+  Content-Type: multipart/mixed; boundary=690DEB64
+  Content-Length: [len]
+
+  --690DEB64
+  Content-Type: application/sdp
+
+  v=0
+  o=user1 53655765 2353687637 IN IP[local_ip_type] [local_ip]
+  s=-
+  c=IN IP[local_ip_type] [local_ip]
+  t=0 0
+  m=audio [auto_media_port] RTP/AVP 8
+  c=IN IP[local_ip_type] [local_ip]
+  a=rtpmap:8 PCMA/8000
+  a=direction:both
+  a=inactive
+  a=label:a_leg
+  m=audio 60000 RTP/AVP 8
+  c=IN IP[local_ip_type] [local_ip]
+  a=rtpmap:8 PCMA/8000
+  a=direction:both
+  a=inactive
+  a=label:b_leg
+
+  --690DEB64
+  Content-Type: application/rs-metadata
+  Content-Disposition: recording-session
+
+  <?xml version="1.0" encoding="UTF-8"?>
+    <recording xmlns='urn:ietf:params:xml:ns:recording:1'>
+      <datamode>complete</datamode>
+      <session session_id="XoM2pKdFR8C3eX33qJKcww==">
+        <sipSessionID>hvij5wK4Wx</sipSessionID>
+      </session>
+      <participant participant_id="omFyWlFETEyFz/KXNLe4iQ==">
+      <nameID aor="sip:6001@localhost"/>
+      </participant>
+      <participant participant_id="fLbZzLMgRXGp+F5w0hOt6w==">
+        <nameID aor="sip:101@localhost"/>
+      </participant>
+      <stream stream_id="1LiAtnDVR9m469/0L4bwCA==" session_id="XoM2pKdFR8C3eX33qJKcww==">
+      <label>1</label>
+      </stream>
+      <stream stream_id="WJgj5uxeRH+nwUah02dWqg==" session_id="XoM2pKdFR8C3eX33qJKcww==">
+      <label>2</label>
+      </stream>
+    </recording>
+
+  --690DEB64--
+
+  ]]>
+</send>
+
+<recv response="100" optional="true">
+</recv>
+
+<recv response="180" optional="true">
+</recv>
+
+<recv response="200" rtd="true" crlf="true">
+</recv>
+
+<!-- Send ACK for the 200 OK received from the re-INVITE -->
+<send>
+  <![CDATA[
+
+  ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
+  Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+  From: sipp <sip:sipp@[local_ip]:[local_port]>;tag=[pid]SIPpTag09[call_number]
+  To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
+  Call-ID: [call_id]
+  CSeq: 2 ACK
+  Contact: sip:sipp@[local_ip]:[local_port]
+  Max-Forwards: 70
+  Subject: Performance Test
+  Content-Length: 0
+
+  ]]>
+</send>
+
   <!-- Pause 8 seconds, which is approximately the duration of the      -->
   <!-- PCAP file                                                        -->
   <pause milliseconds="3000"/>
