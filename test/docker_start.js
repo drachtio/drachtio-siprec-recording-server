@@ -15,11 +15,18 @@ test('starting docker network..', (t) => {
   exec(`docker-compose -p test -f ${__dirname}/docker-compose-testbed.yaml up -d`, (err, stdout, stderr) => {
     if (-1 != stderr.indexOf('is up-to-date')) return t.end() ;
     console.log('docker network started, giving extra time for freeswitch to initialize...');
-    setTimeout(() => {
+    let retries = 30;
+    const interval = setInterval(() => {
       exec('docker exec freeswitch fs_cli -x "console loglevel debug"', (err, stdout, stderr) => {
-        t.end(err) ;
+        if (err) {
+          if (--retries > 0) return ;
+          clearInterval(interval) ;
+          return t.end(err) ;
+        }
+        clearInterval(interval);
+        t.end() ;
       });
-    }, 18000);
+    }, 1000);
   });
 });
 
