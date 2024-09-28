@@ -12,7 +12,7 @@ test('starting docker network..', (t) => {
       console.log(`Error cleaning tmp folders: ${err}`);
       t.end(err);
     });
-  exec(`docker-compose -p test -f ${__dirname}/docker-compose-testbed.yaml up -d`, (err, stdout, stderr) => {
+  exec(`docker compose -p test -f ${__dirname}/docker-compose-testbed.yaml up -d`, (err, stdout, stderr) => {
     if (-1 != stderr.indexOf('is up-to-date')) return t.end() ;
     console.log('docker network started, giving extra time for freeswitch to initialize...');
     setTimeout(() => {
