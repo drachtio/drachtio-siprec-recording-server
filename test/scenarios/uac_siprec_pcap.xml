@@ -96,7 +96,7 @@
   <!-- By adding rrs="true" (Record Route Sets), the route sets         -->
   <!-- are saved and used for following messages sent. Useful to test   -->
   <!-- against stateful SIP proxies/B2BUAs.                             -->
-  <recv response="200" rtd="true" crlf="true">
+  <recv response="200" rtd="true" crlf="true" timeout="2000">
   </recv>
 
   <!-- Packet lost can be simulated in any send/recv message by         -->
@@ -196,7 +196,7 @@
 <recv response="180" optional="true">
 </recv>
 
-<recv response="200" rtd="true" crlf="true">
+<recv response="200" rtd="true" crlf="true" timeout="2000">
 </recv>
 
 <!-- Send ACK for the 200 OK received from the re-INVITE -->
@@ -239,7 +239,7 @@
     ]]>
   </send>
 
-  <recv response="200" crlf="true">
+  <recv response="200" crlf="true" timeout="2000">
   </recv>
 
   <!-- definition of the response time repartition table (unit is ms)   -->
